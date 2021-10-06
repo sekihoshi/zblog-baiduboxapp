@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "mp-html": "/components/mp-html/index",
+        "smt-like": "dynamicLib://smart-sc/like"
+    },
+    "usingSwanComponents": {
+        "comment-list": "dynamicLib://myDynamicLib/comment-list"
+    }
+}

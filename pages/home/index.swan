@@ -1,0 +1,120 @@
+<!--index.wxml-->
+<!-- 轮播图 -->
+<view class="swiper-box">
+    <swiper class="banner" style='height:{{swiperH}}' bindchange="swiperChange" autoplay="true" interval="3000"
+        duration="500" circular="true">
+        <block s-for="item, index in swiper" s-key="{{index}}">
+            <swiper-item>
+                <navigator url="{{item.route}}" hover-stay-time="100">
+                    <image src="{{item.Imgurl}}" class="slide-image" mode="widthFix" bindload='imgHeight'
+                        lazy-load='true' />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="dots">
+        <block s-for="item, index in swiper" s-key="{{index}}">
+            <view class="dot {{index == swiperCurrent  ? 'active' : ''}}"></view>
+        </block>
+    </view>
+</view>
+<!-- 文章推荐 -->
+<view class="container blog-view">
+    <view class="article-item">
+        <view class="rn-container" s-for="item, index in hostList" s-key="index" bindtap="detailsBtn"
+            data-id='{{item.ID}}' hover-stay-time="100">
+            <view class="rn-footer">
+                <view class="badge-sticky"></view><text class="title">{{item.Title}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 文章列表 -->
+    <view class="article-item" s-for="item, index in conList" s-key="index" bindtap="detailsBtn" data-id='{{item.ID}}'
+        hover-stay-time="100">
+        <!-- 判断是否为三张图片 -->
+        <view s-if="{{ item.Thumb.length == 3 }}">
+            <text class="title">{{ item.Title }}</text>
+            <text class="intro">{{ item.zaiyao }}</text>
+            <!--<rich-text nodes="{{item.Intro}}" class="intro" image-menu-prevent="true"></rich-text>-->
+
+            <!-- 输出图片数组 -->
+            <view class='rn-three-pic-content'>
+                <view class="rn-three-pic-wrap" s-for="{{item.Thumb}}">
+                    <image class="rn-three-pic-img" src="{{item}}" mode="aspectFill" lazy-load="true" />
+                </view>
+            </view>
+
+            <!-- 评论信息 -->
+            <view class="info">
+                <text class="item">{{item.Tagn[0]}}</text>
+                <text class="fenge">·</text>
+                <text class="item">{{item.Category.Name}}</text>
+                <text class="item right">{{item.PostTime}}</text>
+            </view>
+        </view>
+        <!-- 判断是否为二张图片 -->
+        <view s-elif="{{ item.Thumb.length == 2 }}">
+            <text class="title">{{item.Title}}</text>
+            <text class="intro">{{ item.zaiyao }}</text>
+
+            <!-- 输出图片数组 -->
+            <view class='rn-three-pic-content'>
+                <view class="rn-three-pic-wrap2" s-for="{{item.Thumb}}">
+                    <image class="rn-three-pic-img" src="{{item}}" mode="aspectFill" lazy-load="true" />
+                </view>
+            </view>
+
+            <!-- 评论信息 -->
+            <view class="info">
+                <text class="item">{{item.Tagn[0]}}</text>
+                <text class="fenge">·</text>
+                <text class="item">{{item.Category.Name}}</text>
+                <text class="item right">{{item.PostTime}}</text>
+            </view>
+        </view>
+        <!-- 判断是否为一张图片 -->
+        <view class="rn-tpl2" s-elif="{{ item.Thumb.length == 1 }}">
+
+            <view class="rn-one-pic-wrap" s-for="{{item.Thumb}}">
+                <image src="{{item}}" mode="aspectFill" lazy-load="true" />
+            </view>
+
+            <view class="rn-text-content">
+                <text class="rn-h1">{{item.Title}}</text>
+                <view class="rn-footer">
+                    <text class="rn-domainName">{{item.Category.Name}}</text>
+                    <text class="rn-open-bdbox-title open-bdbox-title"></text>
+                    <text class="rn-domainName">{{item.PostTime}}</text>
+                </view>
+            </view>
+
+        </view>
+        <!-- 不符合以上条件默认 -->
+        <view s-else>
+            <text class="title">{{item.Title}}</text>
+            <text class="intro">{{ item.zaiyao }}</text>
+            <!-- 输出图片数组 -->
+            <view class='rn-three-pic-content'>
+                <view class="rn-three-pic-wrap" s-for="{{item.Thumb}}">
+                    <image class="rn-three-pic-img" src="{{item}}" mode="aspectFill" lazy-load="true" />
+                </view>
+            </view>
+            <!-- 评论信息 -->
+            <view class="info">
+                <text class="item">{{item.Tagn[0]}}</text>
+                <text class="fenge">·</text>
+                <text class="item">{{item.Category.Name}}</text>
+                <text class="item right">{{item.PostTime}}</text>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="read-more cu-load {{!state?'loading':'over'}}"></view>
+
+</view>
+
+<view class="fixed-icon" bindtap="navdaohang">
+    <image src="../../images/icon/search-icon.svg" mode="aspectFill" lazy-load='true' />
+</view>

@@ -1,0 +1,38 @@
+{
+    "appid": "14857638",
+    "compilation-args": {
+        "common": {
+            "babelSetting": {
+                "ignore": []
+            },
+            "enhance": true,
+            "ignoreTransJs": false,
+            "imgCompress": true
+        },
+        "options": [],
+        "selected": -2
+    },
+    "host": "baiduboxapp",
+    "preview": {
+        "packageId": 1473241
+    },
+    "projectname": "彧繎博客",
+    "publish": {
+        "tips": [
+            "小程序包内容将被百度解析和收录，用于内容的风险控制。",
+            "您已开通分享web化，请确保分享web化体验无问题后，再进行发布。"
+        ],
+        "version": "1.3.5"
+    },
+    "setting": {
+        "autoAudits": false,
+        "enableScripts": false,
+        "urlCheck": true
+    },
+    "swan": {
+        "baiduboxapp": {
+            "swanJsVersion": "3.340.31",
+            "extensionJsVersion": "1.21.2"
+        }
+    }
+}

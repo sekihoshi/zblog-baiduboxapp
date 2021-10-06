@@ -1,0 +1,45 @@
+<view class="container">
+
+    <text class="page-title" selectable='true'>{{ result.Title }}</text>
+    <view class="article-item article-info">
+        <view class="info">
+            <view class="content-desp">
+                <view class="author-detail">
+                    <image class="author-avator" mode="widthFix" src="{{ result.Author.Avatar }}" bindtap="oneTap"></image>
+                    <view class="author-other">
+                        <view class="author-name" bindtap="oneTap">{{ result.Author.Nickname }}<view class="author-v"></view></view>
+                        <view class="publish-date">阅读：{{ result.ViewNums }} 丨 发布：{{ result.PostTime }}</view>
+                    </view>
+                </view>
+                <view class="follow-btn" s-for="item in followData">
+                    <follow-swan size="default" type="{{ item.type }}" bindfavorstatuschange="statuschange" />
+                </view>
+            </view>
+        </view>
+        <view class="d-inline-block" s-for="item, index in result.Tagn" s-key="{{index}}">
+            <view class="badge-primary">{{ item }}</view>
+        </view>
+        <view class="desc">
+            <mp-html content="{{ content }}" lazy-load='{{ true }}' container-style="white-space:pre-wrap;word-break:break-all" selectable='{{ true }}'/>
+        </view>
+        <button type="primary" open-type="share" class="reward-bt">
+            分享
+        </button>
+    </view>
+
+    <text class="page-title" s-if="{{ result.RelatedList.length > 0 }}">相关阅读</text>
+    <view class="container blog-view">
+        <view class="article-item" s-for="item, index in result.RelatedList" s-key="{{ index }}" bindtap="detailsBtn"
+            data-id='{{ item.ID }}' style="border-bottom:0px solid #eee;">
+
+            <text class="title">{{ item.Title }}</text>
+            <text class="intro">{{ item.zaiyao }}</text>
+        </view>
+    </view>
+
+    <text class="page-title">吐槽列表</text>
+    <comment-list class="list" comment-param="{{ commentParam }}" detail-path="{{ detailPath }}"
+        toolbar-config="{{ toolbarConfig }}" bindclickcomment="clickComment">
+    </comment-list>
+</view>
+

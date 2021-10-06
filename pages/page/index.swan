@@ -1,0 +1,32 @@
+<view class="col-lg-8">
+    <view class="list-cover">
+        <view class="list-item list-overlay-content">
+            <view class="media media-21x9">
+                <view class="media-content"
+                    style="background-image: url('../../images/baidu/about.png')">
+                    <view class="overlay"></view>
+                </view>
+            </view>
+            <view class="list-content">
+                <view class="list-body">
+                    <view class="mt-auto p-md-3">
+                        <view class="text-xl" s-for="item in followData">
+                            关于博客 <follow-swan style='float:right' size="default" type="{{ item.type }}" bindfavorstatuschange="statuschange" />
+                        </view>
+                        <view class="border-top border-white mt-2 mt-md-3 pt-2 pt-md-3">
+                            <view class="text-sm h-2x">彧繎博客（opssh.cn）创建于 2021年5月20日，博主：拿铁叔叔，九零后技术宅，前端狂魔</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="container">
+        <view class="article-item article-info">
+            <view class="desc">
+                <mp-html content="{{ content }}" lazy-load='{{ true }}' container-style="white-space:pre-wrap;word-break: break-all" selectable='{{ true }}'/>
+            </view>
+        </view>
+    </view>
+</view>
