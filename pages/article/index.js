@@ -13,9 +13,11 @@ Page({
         // 相关
         abstract: '',
         // 摘要
-        followData: [{ type: 'primary' }],
-        disabled: true,
+        followData: { type: 'primary' },
         // 关注
+        likeParam: {},
+        // 点赞
+        disabled: true,
         commentParam: {
             snid: '0',
             path: 'pages/home/index&_swebfr=0',
@@ -23,16 +25,18 @@ Page({
             content: '彧繎（yù rán）致力于软路由固件刷写、zblog前端开发以及服务器运维经验和日常资源分享，通过分享互联网知识给开发者，让更多开发者从中受益，与网络开发者用代码改变未来!',
             images: 'https://oss.opssh.cn/fonts/logo.png'
         },
+        // 评论
         detailPath: '',
-        // 底部互动 bar 的配置
-        toolbarConfig: {
-            moduleList: ['comment', 'favor', 'share'],
+        // 路径
+        likeConfig: {
+            moduleList: ['like', 'favor']
             // 若 moduleList 中配置有 share 模块，默认是有，则该属性为必填，title 必传
-            share: {
-                title: '彧繎博客 - 关注互联网服务,分享极客精神!',
-                path: '/pages/home/index'
-            }
+        },
+        toolbarConfig: {
+            moduleList: ['comment', 'like', 'favor', 'share']
+            // 若 moduleList 中配置有 share 模块，默认是有，则该属性为必填，title 必传
         }
+        // 底部互动 bar 的配置
     },
     /**
      * 生命周期函数--监听页面加载
@@ -64,14 +68,28 @@ Page({
             res.result.PostTime = formatMsgTime(Number(res.result.PostTime) * 1000, 1);
             res.result.UpdateTime = toDate(Number(res.result.UpdateTime) * 1000, 1);
 
+            const pageStack = getCurrentPages();
+            const currentPage = pageStack[pageStack.length - 1];
+            const privateProperties = currentPage.privateProperties || {};
+            const currentUri = privateProperties.accessUri || currentPage.uri;
+
             _then.setData({
                 'commentParam.snid': _then.data.id,
                 'commentParam.path': '/pages/article/index?id=' + _then.data.id,
                 'commentParam.title': res.result.Title,
                 'commentParam.content': res.result.Intro.replace(/<[^>]+>/g, ""),
                 'commentParam.images': res.result.Thumb,
+
+                'toolbarConfig.placeholder': '吐槽一下',
                 'toolbarConfig.share.title': res.result.Title,
                 'toolbarConfig.share.path': '/pages/article/index?id=' + _then.data.id,
+                'detailPath':'/pages/article/index?id=' + _then.data.id,
+
+                'likeParam.snid': _then.data.id,
+                'likeParam.openid': 'mVMFstfXtsndgnRObr7BoP9hoL',
+                'likeParam.title': res.result.Title,
+                'likeParam.path': currentUri,
+
                 'RelatedList': res.result.RelatedLis,
                 'result': res.result,
                 'content': result
@@ -128,11 +146,6 @@ Page({
         requireDynamicLib('myDynamicLib').listenEvent();
     },
 
-    clickComment(e) {
-        swan.showToast({
-            title: this.data.result.Title
-        });
-    },
     // bindfavorstatuschange 事件可能的应用场景：用户点击关注后，设置隐藏按钮
     favorstatuschange(e) {
         if (e.detail && e.detail.isFavor === true) {
