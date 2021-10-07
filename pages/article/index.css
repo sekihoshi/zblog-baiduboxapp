@@ -105,34 +105,15 @@ swan-comment-list .comment-list-toolbar {
 /** 分享 **/
 
 .reward-bt{
-    width: 96px;
+    width: 40px;
     height: 40px;
-    background-color:#338ff0;
-    border-radius: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff;
+    border-radius: 50px;
     text-align: center;
-    line-height: 40px;
     margin: auto;
     margin-top: 24px;
+    border:1px solid rgba(0,0,0,.2);
 }
 
-.reward-content {
-    display: flex;
-    flex-wrap: nowrap;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-top: 24px;
-}
-
-.reward-right {
-    font-size: 16px;
-    color: #222226;
-    line-height: 22px;
-}
 
 swan-follow-swan, swan-follow-swan[type=primary]:after {
     border-radius:30px;
