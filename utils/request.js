@@ -38,13 +38,17 @@ function request(url, params, method, resolve, reject) {
         method: method,
         // 請求方式
         header: header,
-        // 开启云加速服务
-        cloudCache: true,
         // 請求頭
+        // 开启云加速服务(方式一)
+        // 关闭：false，开启：true
+        cloudCache: false,
+        // 开启云加速服务，并且不以 timestamp 字段作为缓存依据（方式二）
+        // cloudCache: {
+        //     excludeURLQueries: ['timestamp']
+        // },
         defer: false,
         // true 即表示这是一个低优先级请求，可以接受延时执行; false 或不携带此参数，均为正常优先级，即时发送。
         success: res => {
-            console.log(res);
             swan.hideLoading(); // 關閉加載提示
             var data = res.data
             if (res.data) {
