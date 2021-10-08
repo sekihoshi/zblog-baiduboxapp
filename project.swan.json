@@ -14,7 +14,7 @@
     },
     "host": "baiduboxapp",
     "preview": {
-        "packageId": 1473293
+        "packageId": 1473466
     },
     "projectname": "彧繎博客",
     "publish": {
@@ -22,7 +22,7 @@
             "小程序包内容将被百度解析和收录，用于内容的风险控制。",
             "您已开通分享web化，请确保分享web化体验无问题后，再进行发布。"
         ],
-        "version": "1.3.6"
+        "version": "1.3.7"
     },
     "setting": {
         "autoAudits": false,
