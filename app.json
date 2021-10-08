@@ -4,6 +4,7 @@
         "pages/fenxiang/index",
         "pages/luyou/index",
         "pages/daima/index",
+        "pages/say/index",
         "pages/article/index",
         "pages/page/index",
         "pages/search/index",
@@ -51,6 +52,12 @@
                 "iconPath": "images/icon/fenxiang.png",
                 "selectedIconPath": "images/icon/fenxiang_fill.png",
                 "text": "share"
+            },
+            {
+                "pagePath": "pages/say/index",
+                "iconPath": "images/icon/say.png",
+                "selectedIconPath": "images/icon/say_fill.png",
+                "text": "talklee"
             },
             {
                 "pagePath": "pages/daima/index",
