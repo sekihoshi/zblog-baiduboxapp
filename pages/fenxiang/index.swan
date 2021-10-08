@@ -20,6 +20,8 @@
         </view>
     </view>
 </view>
+
+
 <view class="container blog-view">
     <view class="article-item" s-for="item, index in navList" s-key="{{index}}" bindtap="detailsBtn"
         data-id='{{item.ID}}' isCustom="{{true}}" hover-stay-time="100">
