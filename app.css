@@ -142,17 +142,9 @@ button[disabled].red-btn:active {
 }
 
 .article-item .intro {
-    /*overflow: hidden;*/
-    /*display: -webkit-box;*/
-    /*-webkit-line-clamp: 2;*/
-    /*-webkit-box-orient: vertical;*/
-    /*height: 52px;*/
-    /*margin-bottom:15px;*/
     color: #B1B1C1 !important;
     font-size: 0.87rem !important;
 }
-
-
 
 .article-item.article-info {
     background-color: transparent;
