@@ -75,10 +75,6 @@
     padding-top: 100%;
 }
 
-.list-cover .list-overlay-content .list-content {
-    padding: 1.25rem;
-}
-
 .list-overlay-content .list-content {
     position: absolute;
     z-index: 1;

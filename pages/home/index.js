@@ -128,8 +128,8 @@ Page({
         getHome({
             page: _then.data.page
         }).then(res => {
-
             swan.setNavigationBarTitle({ title: res.result.Name });
+            console.log(res.result.Name)
             swan.setPageInfo({
                 title: res.result.Name + ' - ' + res.result.Title,
                 keywords: res.result.Keywords,

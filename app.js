@@ -19,5 +19,6 @@ App({
         openParams: 'docWeb',
         setting: null
     }
+
 });
 
