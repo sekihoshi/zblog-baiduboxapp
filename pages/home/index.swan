@@ -18,18 +18,23 @@
         </block>
     </view>
 </view>
+<navigator url="/pages/search/index" class="search-group" hover-class="none">
+    <view class="search-input">大家都在使用在线搜索</view>
+    <image class="search-icon" src="../../images/icon/search-icon.svg" mode="aspectFill" />
+</navigator>
 <!-- 文章推荐 -->
-<view class="container blog-view">
+<view class="article-bottom">
     <view class="article-item">
-        <view class="rn-container" s-for="item, index in hostList" s-key="index" bindtap="detailsBtn"
-            data-id='{{item.ID}}' hover-stay-time="100">
+        <view class="rn-container" s-for="item, index in hostList" s-key="index" bindtap="detailsBtn" data-id='{{item.ID}}'
+            hover-stay-time="100">
             <view class="rn-footer">
                 <view class="badge-sticky"></view><text class="title">{{item.Title}}</text>
             </view>
         </view>
     </view>
-
-    <!-- 文章列表 -->
+</view>
+<!-- 文章列表 -->
+<view class="container blog-view">
     <view class="article-item" s-for="item, index in conList" s-key="index" bindtap="detailsBtn" data-id='{{item.ID}}'
         hover-stay-time="100">
         <!-- 判断是否为三张图片 -->
@@ -113,8 +118,4 @@
 
     <view class="read-more cu-load {{!state?'loading':'over'}}"></view>
 
-</view>
-
-<view class="fixed-icon" bindtap="navdaohang">
-    <image src="../../images/icon/search-icon.svg" mode="aspectFill" lazy-load='true' />
 </view>

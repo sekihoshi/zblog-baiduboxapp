@@ -113,13 +113,6 @@ Page({
         });
     },
 
-    // 进入搜索栏
-    navdaohang: function () {
-        swan.navigateTo({
-            url: '/pages/search/index'
-        });
-    },
-
     /**
      * 生命周期函数--监听页面显示
      */
@@ -129,7 +122,6 @@ Page({
             page: _then.data.page
         }).then(res => {
             swan.setNavigationBarTitle({ title: res.result.Name });
-            console.log(res.result.Name)
             swan.setPageInfo({
                 title: res.result.Name + ' - ' + res.result.Title,
                 keywords: res.result.Keywords,

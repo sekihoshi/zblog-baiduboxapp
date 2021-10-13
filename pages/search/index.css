@@ -23,6 +23,7 @@
     box-sizing: border-box;
 }
 
+
 .search-bar .search-input {
     width: 100%;
     height: 60rpx;
@@ -30,7 +31,7 @@
     padding: 0 30rpx;
     font-size: 28rpx;
     color: #333;
-    border-radius: 30rpx;
+    border-radius: 10rpx;
     background: #fff;
     box-sizing: border-box;
 }
