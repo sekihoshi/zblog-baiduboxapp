@@ -3,6 +3,7 @@ const app = getApp();
 import { getArticle } from '../../utils/request.js';
 import { toDate, formatMsgTime } from '../../utils/tool.js';
 
+
 Page({
     data: {
         id: '',
@@ -62,7 +63,7 @@ Page({
                 .replace(/&quot;/g, '"')
                 .replace(/<section/g, '<div')
                 .replace(/\/section>/g, '\div>')
-                .replace(/pre class="prism-highlight/g, 'pre style="overflow: auto; padding-top: 22px; padding-bottom: 22px; color: #690; font-size: 14px; background-color: #f2f4fc; padding: 1em; margin: .5em 0;" class="prism-highlight" selectable="true" space="ensp"')
+                .replace(/pre class="prism-highlight/g, 'pre style="overflow: auto; padding-top: 22px; padding-bottom: 22px; color: #690; font-size: 14px; background-color: #f2f4fc; padding: 1em; margin: .5em 0;" class="prism-highlight language-javascript" selectable="true" space="ensp"')
                 .replace(/<img/gi, '<img class="rich-img" style="max-width:100%!important;" ')
 
             res.result.PostTime = formatMsgTime(Number(res.result.PostTime) * 1000, 1);

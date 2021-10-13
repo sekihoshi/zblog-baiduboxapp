@@ -74,5 +74,5 @@
         "enableStore": true
     },
     "useSwanNews": true,
-    "debug": true
+    "debug": false
 }

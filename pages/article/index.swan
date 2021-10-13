@@ -20,7 +20,13 @@
             <view class="badge-primary">{{ item }}</view>
         </view>
         <view class="desc">
-            <mp-html content="{{ content }}" lazy-load='{{ true }}' container-style="white-space:pre-wrap;word-break:break-all" selectable='{{ true }}'/>
+            <mp-html
+                content="{{ content }}"
+                lazy-load='true'
+                container-style="white-space:pre-wrap;word-break:break-all"
+                selectable='true'
+                copy-link='false'
+            />
         </view>
 
         <!--<view class="reward-bt">

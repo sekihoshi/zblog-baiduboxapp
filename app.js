@@ -2,7 +2,7 @@
 
 App({
 
-    onLaunch: function (e) {
+    onLaunch: function () {
         // 记录网络状态
         console.log(new Date)
         swan.getNetworkType({
